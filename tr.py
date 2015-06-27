@@ -2,8 +2,9 @@
 import subprocess
 import sys
 
-f = open(sys.argv[1])
-trcomand ="tr -sc 'A-Za-z' '\n' < oscar.txt | sort | uniq -c | sort -n -r | tr -sc 'A-Za-z' | sort -n -r "
+f = sys.argv[1]
+trcomand ="tr -sc 'A-Za-z' '\n' < %s | sort | uniq -c | sort -n -r | tr -sc 'A-Za-z' | sort -n -r " % f
+
 runcd = subprocess.check_output(trcomand, shell = True)
 try:
 	for line in runcd.split('\n'):
