@@ -1,6 +1,8 @@
 #!/usr/bin/env python2
 import subprocess
-f = open("oscar.txt")
+import sys
+
+f = open(sys.argv[1])
 trcomand ="tr -sc 'A-Za-z' '\n' < oscar.txt | sort | uniq -c | sort -n -r | tr -sc 'A-Za-z' | sort -n -r "
 runcd = subprocess.check_output(trcomand, shell = True)
 try:
